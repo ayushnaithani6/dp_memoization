@@ -33,9 +33,7 @@ int main() {
         // ]
 
     printAns(allConstruct("skateboard", {"bo", "rd", "ate", "t", "ska", "sk", "boar"}));    
-        // [
         //     []
-        // ]
 
     printAns(allConstruct("enterapotentpot", {"a", "p", "ent", "enter", "ot", "o", "t"}));        
         // [
@@ -46,9 +44,8 @@ int main() {
         // ]
 
     printAns(allConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", {"e", "ee", "eee", "eeee", "eeeee"}));
-        // [
         //     []
-        // ]
+
     
     return 0;
 }
@@ -86,22 +83,17 @@ vector<vector<string>> allConstructUtil(string target, vector<string> wordBank, 
     return result;
 }
 
-void printAns(vector<vector<string>> allPossibleWays) {
-    int n = allPossibleWays.size();
+void printAns(vector<vector<string>> allCombination) {
     cout << "[" << endl;
-    if(n == 0) {
-        cout << "   []" << endl;
-    }
-    else {
-        for(int i=0; i<n; ++i) {
-            cout << "    [";
-            int m = allPossibleWays[i].size();
-            for(int j=m-1; j>0; --j) {
-                cout << allPossibleWays[i][j] << ", ";
-            }
-            cout << allPossibleWays[i][0];
-            cout << "]" << endl;
+    for(int i=0; i<allCombination.size(); ++i) {
+        cout << "  [";
+        
+        for(int j=allCombination[i].size()-1; j>=0; --j) {
+            cout << allCombination[i][j] << "  ";
         }
+        cout << "]";
+        cout << endl;
     }
-    cout << "]" << endl << endl;
+    cout << "]";
+    cout << endl << endl << endl;
 }
